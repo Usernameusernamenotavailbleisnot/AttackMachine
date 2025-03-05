@@ -487,6 +487,9 @@ OWLTO_CONTRACT = {
     },
     'Blast': {
         'check_in': '0xEff847da094d82f852cF4c2678e28fA39285DBfe'
+    },
+    'Base': {
+        'check_in': '0x26637c9fDbD5Ecdd76a9E21Db7ea533e1B0713b6'
     }
 }
 
