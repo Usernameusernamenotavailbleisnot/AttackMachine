@@ -1,27 +1,27 @@
 """
 ----------------------------------------------AMOUNT CONTROL------------------------------------------------------------
-    Здесь вы определяете количество или % токенов для обменов, добавления ликвидности, депозитов и трансферов
-    Софт берет % только для ETH, остальные токены берутся на 100% от баланса
+    Here you define the quantity or % of tokens for exchanges, adding liquidity, deposits, and transfers
+    The software takes % only for ETH, other tokens are taken at 100% of the balance
 
-    Можно указать минимальную/максимальную сумму или минимальный/максимальный % от баланса
+    You can specify minimum/maximum amount or minimum/maximum % of the balance
 
-    Количество - (0.01, 0.02)
-    Процент    - ("55", "60") ⚠️ Значения в скобках
+    Quantity - (0.01, 0.02)
+    Percentage - ("55", "60") ⚠️ Values in quotes
 
     AMOUNT_PERCENT_WRAPS
-    AMOUNT_PERCENT | Указывать только %, без кавычек. Можно указывать с точностью до 6 цифры (99.123456, 99.654321).
-                        ⚠️Остальные настройки сумм указывать в кавычках(если хотите работать в %)⚠️
-    MIN_BALANCE | Минимальный баланс для аккаунта. При меньшем балансе будет ошибка: (Insufficient balance on account!)
+    AMOUNT_PERCENT | Specify only %, without quotes. Can be specified with precision up to 6 digits (99.123456, 99.654321).
+                     ⚠️Other amount settings should be specified in quotes (if you want to work in %)⚠️
+    MIN_BALANCE | Minimum balance for the account. With a lower balance, there will be an error: (Insufficient balance on account!)
 """
-AMOUNT_PERCENT = (5, 5)  # Применяется для обменов.
-AMOUNT_PERCENT_WRAPS = (55, 60)  # Применяется для модуля wrap_abuser.
-LIQUIDITY_AMOUNT = (0.00001, 0.00002)  # Применяется для добавления ликвидности, депозитов на лендинги и wrap ETH
-TRANSFER_AMOUNT = (0.0001, 0.0002)  # Применяется для трансферов эфира на свой или рандомный адрес
-MIN_BALANCE = 0.001  # Количество ETH на аккаунте
+AMOUNT_PERCENT = (0.1, 0.2)  # Applied for exchanges.
+AMOUNT_PERCENT_WRAPS = (55, 60)  # Applied for the wrap_abuser module.
+LIQUIDITY_AMOUNT = (0.00001, 0.00002)  # Applied for adding liquidity, deposits to lendings, and wrap ETH
+TRANSFER_AMOUNT = (0.0001, 0.0002)  # Applied for transfers of ether to your own or random address
+MIN_BALANCE = 0.001  # Amount of ETH on the account
 
 """
 ------------------------------------------------GENERAL SETTINGS--------------------------------------------------------
-    GLOBAL_NETWORK | Блокчейн для основного взаимодействия ⚠️
+    GLOBAL_NETWORK | Blockchain for main interaction ⚠️
 
     Arbitrum = 1            Scroll = 8
     Arbitrum Nova = 2       Starknet = 9
@@ -31,70 +31,70 @@ MIN_BALANCE = 0.001  # Количество ETH на аккаунте
     Polygon = 6             Ethereum = 13
     Optimism = 7            Blast = 49
 
-    WALLETS_TO_WORK = 0 | Софт будет брать кошельки из таблице по правилам, описанным снизу
-    0       = все кошельки подряд
-    3       = только кошелек №3
-    4, 20   = кошелек №4 и №20
-    [5, 25] = кошельки с №5 по №25
+    WALLETS_TO_WORK = 0 | The software will take wallets from the table according to the rules described below
+    0       = all wallets in sequence
+    3       = only wallet #3
+    4, 20   = wallet #4 and #20
+    [5, 25] = wallets from #5 to #25
     
-    ACCOUNTS_IN_STREAM      | Количество кошельков в потоке на выполнение. Если всего 100 кошельков, а указать 10,
-                                то софт сделает 10 подходов по 10 кошельков
-    CONTROL_TIMES_FOR_SLEEP | Количество проверок, после которого для всех аккаунтов будет включен рандомный сон в
-                                моменте, когда газ опуститься до MAXIMUM_GWEI и аккаунты продолжат работать
+    ACCOUNTS_IN_STREAM      | Number of wallets in the stream for execution. If there are 100 wallets total, and you specify 10,
+                             the software will make 10 approaches with 10 wallets each
+    CONTROL_TIMES_FOR_SLEEP | Number of checks after which random sleep will be enabled for all accounts at
+                             the moment when gas drops to MAXIMUM_GWEI and accounts will continue working
 
-    EXCEL_PASSWORD          | Включает запрос пароля при входе в софт. Сначала установите пароль в таблице
-    EXCEL_PAGE_NAME         | Название листа в таблице. Пример: 'EVM'
-    GOOGLE_SHEET_URL        | Ссылка на вашу Google таблицу с прогрессом аккаунтов
-    GOOGLE_SHEET_PAGE_NAME  | Аналогично EXCEL_PAGE_NAME
-    MAIN_PROXY              | Прокси для обращения к API бирж. Формат - log:pass@ip:port. По умолчанию - localhost
+    EXCEL_PASSWORD          | Enables password request when entering the software. First set the password in the table
+    EXCEL_PAGE_NAME         | Name of the sheet in the table. Example: 'EVM'
+    GOOGLE_SHEET_URL        | Link to your Google spreadsheet with account progress
+    GOOGLE_SHEET_PAGE_NAME  | Same as EXCEL_PAGE_NAME
+    MAIN_PROXY              | Proxy for accessing exchange APIs. Format - log:pass@ip:port. Default - localhost
 """
-GLOBAL_NETWORK = 3              # Любая сеть, из указанных сверху
-SOFTWARE_MODE = 0               # 0 - последовательный запуск / 1 - параллельный запуск
-ACCOUNTS_IN_STREAM = 1          # Только для SOFTWARE_MODE = 1 (параллельный запуск)
+GLOBAL_NETWORK = 3              # Any network from those specified above
+SOFTWARE_MODE = 0               # 0 - sequential launch / 1 - parallel launch
+ACCOUNTS_IN_STREAM = 1          # Only for SOFTWARE_MODE = 1 (parallel launch)
 WALLETS_TO_WORK = 0             # 0 / 3 / 3, 20 / [3, 20]
-SHUFFLE_WALLETS = False         # Перемешивает кошельки перед запуском
-SHUFFLE_ROUTE = False           # Перемешивает маршрут перед запуском
-BREAK_ROUTE = False             # Прекращает выполнение маршрута, если произойдет ошибка
-VOLUME_MODE = False             # Приостанавливает выполнение маршрута, при возникновении ошибок с биржами или бриджами
-STOP_SOFTWARE = False           # Прекращает выполнение всего софта, если произойдет критическая ошибка
-SAVE_PROGRESS = True            # Включает сохранение прогресса аккаунта для Classic-routes
-TELEGRAM_NOTIFICATIONS = False  # Включает уведомления в Telegram
+SHUFFLE_WALLETS = False         # Shuffles wallets before launch
+SHUFFLE_ROUTE = False           # Shuffles the route before launch
+BREAK_ROUTE = False             # Stops route execution if an error occurs
+VOLUME_MODE = False             # Pauses route execution when errors occur with exchanges or bridges
+STOP_SOFTWARE = False           # Stops the entire software if a critical error occurs
+SAVE_PROGRESS = True            # Enables saving account progress for Classic-routes
+TELEGRAM_NOTIFICATIONS = False  # Enables Telegram notifications
 
 '------------------------------------------------SLEEP CONTROL---------------------------------------------------------'
-SLEEP_MODE = False               # Включает сон после каждого модуля и аккаунта
-SLEEP_TIME_MODULES = (60, 80)    # (минимум, максимум) секунд | Время сна между модулями.
-SLEEP_TIME_ACCOUNTS = (40, 60)   # (минимум, максимум) секунд | Время сна между аккаунтами.
+SLEEP_MODE = False               # Enables sleep after each module and account
+SLEEP_TIME_MODULES = (60, 80)    # (minimum, maximum) seconds | Sleep time between modules.
+SLEEP_TIME_ACCOUNTS = (40, 60)   # (minimum, maximum) seconds | Sleep time between accounts.
 
 '-------------------------------------------------GAS CONTROL----------------------------------------------------------'
-GAS_CONTROL = False             # Включает контроль газа
-MAXIMUM_GWEI = 40               # Максимальный GWEI для работы софта, изменять во время работы софта в maximum_gwei.json
-SLEEP_TIME_GAS = 100            # Время очередной проверки газа
-CONTROL_TIMES_FOR_SLEEP = 5     # Количество проверок
-GAS_LIMIT_MULTIPLIER = 1.5      # Множитель газ лимита для транзакций. Поможет сэкономить на транзакциях
-GAS_PRICE_MULTIPLIER = 1.3      # Множитель цены газа для транзакций. Ускоряет выполнение или уменьшает цену транзакции
+GAS_CONTROL = False             # Enables gas control
+MAXIMUM_GWEI = 40               # Maximum GWEI for software operation, change during software operation in maximum_gwei.json
+SLEEP_TIME_GAS = 100            # Time for the next gas check
+CONTROL_TIMES_FOR_SLEEP = 5     # Number of checks
+GAS_LIMIT_MULTIPLIER = 1.5      # Gas limit multiplier for transactions. Helps save on transactions
+GAS_PRICE_MULTIPLIER = 1.3      # Gas price multiplier for transactions. Speeds up execution or reduces transaction price
 
 '------------------------------------------------RETRY CONTROL---------------------------------------------------------'
-MAXIMUM_RETRY = 20              # Количество повторений при ошибках
-SLEEP_TIME_RETRY = (5, 10)      # (минимум, максимум) секунд | Время сна после очередного повторения
+MAXIMUM_RETRY = 20              # Number of retries on errors
+SLEEP_TIME_RETRY = (5, 10)      # (minimum, maximum) seconds | Sleep time after another retry
 
 '------------------------------------------------PROXY CONTROL---------------------------------------------------------'
-USE_PROXY = False                # Включает использование прокси
-MOBILE_PROXY = False             # Включает использование мобильных прокси. USE_PROXY должен быть True
+USE_PROXY = False                # Enables proxy usage
+MOBILE_PROXY = False             # Enables mobile proxy usage. USE_PROXY must be True
 MOBILE_PROXY_URL_CHANGER = [
     '',
-]  # ['link1', 'link2'..] | Ссылки для смены IP. Софт пройдется по всем ссылкам
+]  # ['link1', 'link2'..] | Links for changing IP. The software will go through all links
 
 '-----------------------------------------------SLIPPAGE CONTROL-------------------------------------------------------'
-SLIPPAGE = 2                   # 0.54321 = 0.54321%, 1 = 1% | Максимальное влияние на цену при обменах токенов
+SLIPPAGE = 2                   # 0.54321 = 0.54321%, 1 = 1% | Maximum price impact when exchanging tokens
 
 '-----------------------------------------------APPROVE CONTROL--------------------------------------------------------'
-UNLIMITED_APPROVE = False       # Включает безлимитный Approve для контракта
+UNLIMITED_APPROVE = False       # Enables unlimited Approve for the contract
 
 '------------------------------------------------HELP SOFTWARE---------------------------------------------------------'
-HELP_SOFTWARE = True  # Включает перевод автору 1% от суммы свапа при работе с агрегаторами. Перевод идет от контракта.
+HELP_SOFTWARE = False  # Enables transferring 1% of the swap amount to the author when working with aggregators. Transfer goes from the contract.
 
 '------------------------------------------------PROXY CONTROL---------------------------------------------------------'
-MAIN_PROXY = ''                  # log:pass@ip:port, прокси для обращения к API бирж. По умолчанию - localhost
+MAIN_PROXY = ''                  # log:pass@ip:port, proxy for accessing exchange APIs. Default - localhost
 
 '------------------------------------------------SECURE DATA-----------------------------------------------------------'
 # OKX API KEYS https://www.okx.com/ru/account/my-api
@@ -119,7 +119,7 @@ BINANCE_API_SECRET = ""
 # EXCEL AND GOOGLE INFO
 EXCEL_PASSWORD = False
 EXCEL_PAGE_NAME = "EVM"
-EXCEL_FILE_PATH = "./data/accounts_data.xlsx"  # Можете не изменять, если устраивает дефолтное расположение таблицы
+EXCEL_FILE_PATH = "./data/accounts_data.xlsx"  # You can leave unchanged if the default table location is suitable
 GOOGLE_SHEET_URL = ""
 GOOGLE_SHEET_PAGE_NAME = ""
 
