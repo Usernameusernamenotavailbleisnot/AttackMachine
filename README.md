@@ -1,250 +1,237 @@
-﻿
 # ⚔️ Attack Machine
 
 ![](https://github.com/realaskaer/Scroll/blob/master/data/preview.png)
 
-## Общая информация
+## General Information
 
-Очень мощный инструмент в умелых руках. Практически полностью автоматизирован. С помощью этой тачки, вы сможете управлять 
-фермой под любое количество аккаунтов во всех поддерживаемых сетях. Все настройки простые и понятные, ничего лишнего.
-> Путь осилит идущий, а софт осилит любой деген🕵️
+A very powerful tool in skilled hands. Almost completely automated. With this machine, you can manage a farm of any number of accounts across all supported networks. All settings are simple and intuitive, nothing excessive.
+> The path will be mastered by the walker, and the software will be mastered by any degen 🕵️
 
-**Подробная [статья](https://teletype.in/@realaskaer/attackmachine) по работе с этим зверем**
+**Detailed [article](https://teletype.in/@realaskaer/attackmachine) on working with this beast**
 
-## Основные особенности 
+## Main Features
 
-* **Автоматическая работа большинства модулей
-  (не нужно настраивать каждый модуль отдельно)**
-* **Поддержка прокси (включая мобильные)**
-* **Поддержка работы с базой данных (Google реализация)**
-* **OKX / Binance / BingX / Bitget (ввод, вывод, работа с субАккаунтами)**
-* **Across / Bungee / LayerSwap / Nitro / Owlto / Orbiter / Relay / Rhino (все сети)**
-* **Поиск балансов в сетях для LayerZero, бриджей и бирж**
-* **Реализация 45+ сетей(оба направления) для LayerZero**
-* **Защита от Price Impact на всех DEX**
-* **Рандомизация сумм/задержек/количества транзакций**
-* **Плотнейшее логирование, даже ваш чих залогируется**
-* **Полная статистика всех аккаунтов в таблице**
-* **Автоматическая/ручная генерация маршрута**
-* **Сохранение процесса для аккаунтов**
-* **Gas чекер, Повторитель (при ошибках в модулях)**
-* **Сбор не отработавших кошельков**
-* **Сохранение логов в файлы по дням**
-* **Софт знает дату дропа (WHEN?)**
-* **Параллельный запуск**
-* **Асинхронный ООП код**
+* **Automatic operation of most modules
+  (no need to configure each module separately)**
+* **Proxy support (including mobile proxies)**
+* **Support for database work (Google implementation)**
+* **OKX / Binance / BingX / Bitget (deposit, withdrawal, work with subaccounts)**
+* **Across / Bungee / LayerSwap / Nitro / Owlto / Orbiter / Relay / Rhino (all networks)**
+* **Balance search in networks for LayerZero, bridges and exchanges**
+* **Implementation of 45+ networks (both directions) for LayerZero**
+* **Protection against Price Impact on all DEXs**
+* **Randomization of amounts/delays/number of transactions**
+* **Extensive logging, even your sneeze will be logged**
+* **Complete statistics of all accounts in a table**
+* **Automatic/manual route generation**
+* **Process saving for accounts**
+* **Gas checker, Repeater (for errors in modules)**
+* **Collection of unused wallets**
+* **Saving logs to files by day**
+* **Software knows the drop date (WHEN?)**
+* **Parallel launch**
+* **Asynchronous OOP code**
 * **EIP-1559**
 
-***❗Благодаря настройке `AMOUNT_PERCENT` софт сам решает, какое количество и какие токены будут применяться для работы модулей.
-Машина учитывает % только для нативного токена `ETH`, остальные токены(включая LP токены) обмениваются или выводятся из пулов на 100% от их баланса.
+***❗Thanks to the `AMOUNT_PERCENT` setting, the software itself decides what amount and which tokens will be used for module operation.
+The machine considers % only for the native token `ETH`, other tokens (including LP tokens) are exchanged or withdrawn from pools at 100% of their balance.
 
 
-## 🧩Модули
+## 🧩Modules
 
-    1.  OKX                 (Депозит / Вывод / Сбор средств с субАккаунтов)                                       
-    2.  BingX               (Депозит / Вывод / Сбор средств с субАккаунтов)                                       
-    3.  Binance             (Депозит / Вывод / Сбор средств с субАккаунтов)                                       
-    4.  Bitget              (Депозит / Вывод / Сбор средств с субАккаунтов)                                       
-    5.  Across              (Bridge по любым направлениям / для любых монет)
-    6.  Bungee              (Bridge по любым направлениям / для любых монет)
-    7.  LayerSwap           (Bridge по любым направлениям / для любых монет)
-    8.  Nitro               (Bridge по любым направлениям / для любых монет)
-    9.  Owlto               (Bridge по любым направлениям / для любых монет)
-    10. Orbiter             (Bridge по любым направлениям / для любых монет)    
-    11. Relay               (Bridge по любым направлениям / для любых монет)   
-    12. Rhino               (Bridge по любым направлениям / для любых монет)   
-    13. Native bridge       (офф. мост Bridge / Withdraw)
-    14. Mute                (Свапы между стейблами и ETH + ввод и вывод ликвидности)                       
-    15. SyncSwap            (Свапы между стейблами и ETH + ввод и вывод ликвидности)                         
-    16. Maverik             (Свапы между стейблами и ETH + ввод и вывод ликвидности)             
-    17. Ambient             (Свапы между стейблами и ETH)
-    18. Zebra               (Свапы между стейблами и ETH)
-    19. Skydrome            (Свапы между стейблами и ETH)
-    20. Velocore            (Свапы между стейблами и ETH)
-    21. SushiSwap           (Свапы между стейблами и ETH)
-    22. Uniswap             (Свапы между стейблами и ETH)
-    23. XYfinance           (Свапы между стейблами и ETH)                                   
-    24. OpenOcean           (Свапы между стейблами и ETH)                               
-    25. 1inch               (Свапы между стейблами и ETH)                                                  
-    26. zkSwap              (Свапы между стейблами и ETH)  
-    27. Rango               (Свапы между стейблами и ETH)                                    
-    28. SpaceFI             (Свапы между стейблами и ETH)   
-    29. WooFI               (Свапы между стейблами и ETH)          
-    30. veSync              (Свапы между стейблами и ETH)
-    31. iZumi               (Свапы между стейблами и ETH)   
-    32. PancakeSwap         (Свапы между стейблами и ETH)
-    33. Velocore            (Свапы между стейблами и ETH)
-    34. EraLend             (Ввод и вывод ликвидности + вкл/выкл collateral)        
-    35. Basilisk            (Ввод и вывод ликвидности + вкл/выкл collateral)
-    36. ReactorFusion       (Ввод и вывод ликвидности + вкл/выкл collateral)
-    37. LayerBank           (Ввод и вывод ликвидности + вкл/выкл collateral)  
-    38. ZeroLend            (Ввод и вывод ликвидности)
-    39. ZNS                 (Минт домена для zkSync)
-    40. ENS                 (Минт домена для zkSync)
-    41. Safe (Gnosis)       (Создание сейфа на zkSync и Base)
-    42. MailZero            (Минт Free NFT)
-    43. Mint.fun            (Минт любой NFT по контракту)
-    44. Stargate            (Делает свапы на Stargate во всех сетях для ETH, USDT, USDC)
-    45. CoreDAO             (Делает свапы на Stargate во всех сетях для ETH, USDT, USDC)
-    46. L2Pass              (Минт / бридж последней NFT + refuel в/из любой сети / gas station)
-    47. Merkly              (Минт / бридж последней NFT + refuel в/из любой сети)
-    48. Whale               (Минт / бридж последней NFT + refuel в/из любой сети)
-    49. Zerius              (Минт / бридж последней NFT + refuel в/из любой сети)
-    50. Bungee              (Refuel в/из любой сети)
-    51. Merkly Wormhole     (Минт / бридж последней NFT / Токена)
-    52. Merkly Polyhedra    (Минт / бридж последней NFT + refuel в/из любой сети)
-    53. Merkly Hyperlane    (Минт / бридж последней NFT / Токена)
-    54. Tevaera             (Минт двух NFT)
-    55. Omnisea             (Создание коллекции)
-    56. GrapeDraw           (Создание ставок на участие в розыгрышах)
-    57. HyperComic          (Минт NFT за выполнение достижений)
-    58. RubyScore           (Голосование за блокчейн)
-    59. zkStars             (Минт рандомной NFT)
-    60. Dmail               (Отправка сообщений)
-    61. L2Telegraph         (Отправка сообщений + минт и брижд в/из любой сети)
-    62. ETH Sender          (Отправка пыли в ETH на свой / рандомный адрес)
-    63. Wrap/Unwrap ETH     (Делает врапы / анврапы ETH через офф. контракт WETH в сети)
-    64. Wraps Abuser        (Делает врапы / анврапы ETH на агрегаторах, минуя офф. контракт WETH в сети)
-    65. Colletor ETH        (Собирает весь баланс в ETH)
-    66. Balancer ETH        (Уравнивает весь баланс в одинакове количество ETH)
-    67. Random Approve      (Делает случайный апрув на контракт DEX)
-    68. L2Pass Attack       (Несколько L0 refuel / бриджей NFT подряд)
-    69. Merkly Attack       (Несколько L0 refuel / бриджей NFT подряд)
-    70. Whale Attack        (Несколько L0 refuel / бриджей NFT подряд)
-    71. Zerius Attack       (Несколько L0 refuel / бриджей NFT подряд)
+    1.  OKX                 (Deposit / Withdrawal / Collecting funds from subaccounts)                                       
+    2.  BingX               (Deposit / Withdrawal / Collecting funds from subaccounts)                                       
+    3.  Binance             (Deposit / Withdrawal / Collecting funds from subaccounts)                                       
+    4.  Bitget              (Deposit / Withdrawal / Collecting funds from subaccounts)                                       
+    5.  Across              (Bridge in any direction / for any coin)
+    6.  Bungee              (Bridge in any direction / for any coin)
+    7.  LayerSwap           (Bridge in any direction / for any coin)
+    8.  Nitro               (Bridge in any direction / for any coin)
+    9.  Owlto               (Bridge in any direction / for any coin)
+    10. Orbiter             (Bridge in any direction / for any coin)    
+    11. Relay               (Bridge in any direction / for any coin)   
+    12. Rhino               (Bridge in any direction / for any coin)   
+    13. Native bridge       (official bridge / Withdraw)
+    14. Mute                (Swaps between stablecoins and ETH + liquidity deposit and withdrawal)                       
+    15. SyncSwap            (Swaps between stablecoins and ETH + liquidity deposit and withdrawal)                         
+    16. Maverik             (Swaps between stablecoins and ETH + liquidity deposit and withdrawal)             
+    17. Ambient             (Swaps between stablecoins and ETH)
+    18. Zebra               (Swaps between stablecoins and ETH)
+    19. Skydrome            (Swaps between stablecoins and ETH)
+    20. Velocore            (Swaps between stablecoins and ETH)
+    21. SushiSwap           (Swaps between stablecoins and ETH)
+    22. Uniswap             (Swaps between stablecoins and ETH)
+    23. XYfinance           (Swaps between stablecoins and ETH)                                   
+    24. OpenOcean           (Swaps between stablecoins and ETH)                               
+    25. 1inch               (Swaps between stablecoins and ETH)                                                  
+    26. zkSwap              (Swaps between stablecoins and ETH)  
+    27. Rango               (Swaps between stablecoins and ETH)                                    
+    28. SpaceFI             (Swaps between stablecoins and ETH)   
+    29. WooFI               (Swaps between stablecoins and ETH)          
+    30. veSync              (Swaps between stablecoins and ETH)
+    31. iZumi               (Swaps between stablecoins and ETH)   
+    32. PancakeSwap         (Swaps between stablecoins and ETH)
+    33. Velocore            (Swaps between stablecoins and ETH)
+    34. EraLend             (Liquidity deposit and withdrawal + enable/disable collateral)        
+    35. Basilisk            (Liquidity deposit and withdrawal + enable/disable collateral)
+    36. ReactorFusion       (Liquidity deposit and withdrawal + enable/disable collateral)
+    37. LayerBank           (Liquidity deposit and withdrawal + enable/disable collateral)  
+    38. ZeroLend            (Liquidity deposit and withdrawal)
+    39. ZNS                 (Domain minting for zkSync)
+    40. ENS                 (Domain minting for zkSync)
+    41. Safe (Gnosis)       (Creating a safe on zkSync and Base)
+    42. MailZero            (Free NFT minting)
+    43. Mint.fun            (Minting any NFT by contract)
+    44. Stargate            (Makes swaps on Stargate in all networks for ETH, USDT, USDC)
+    45. CoreDAO             (Makes swaps on Stargate in all networks for ETH, USDT, USDC)
+    46. L2Pass              (Mint / bridge last NFT + refuel to/from any network / gas station)
+    47. Merkly              (Mint / bridge last NFT + refuel to/from any network)
+    48. Whale               (Mint / bridge last NFT + refuel to/from any network)
+    49. Zerius              (Mint / bridge last NFT + refuel to/from any network)
+    50. Bungee              (Refuel to/from any network)
+    51. Merkly Wormhole     (Mint / bridge last NFT / Token)
+    52. Merkly Polyhedra    (Mint / bridge last NFT + refuel to/from any network)
+    53. Merkly Hyperlane    (Mint / bridge last NFT / Token)
+    54. Tevaera             (Minting two NFTs)
+    55. Omnisea             (Collection creation)
+    56. GrapeDraw           (Creating bets for participation in giveaways)
+    57. HyperComic          (NFT minting for completing achievements)
+    58. RubyScore           (Voting for blockchain)
+    59. zkStars             (Random NFT minting)
+    60. Dmail               (Sending messages)
+    61. L2Telegraph         (Sending messages + minting and bridging to/from any network)
+    62. ETH Sender          (Sending dust in ETH to your own / random address)
+    63. Wrap/Unwrap ETH     (Makes wraps / unwraps ETH through the official WETH contract in the network)
+    64. Wraps Abuser        (Makes wraps / unwraps ETH on aggregators, bypassing the official WETH contract in the network)
+    65. Collector ETH       (Collects the entire balance in ETH)
+    66. Balancer ETH        (Balances the entire balance in equal amounts of ETH)
+    67. Random Approve      (Makes random approval on DEX contract)
+    68. L2Pass Attack       (Several L0 refuels / NFT bridges in a row)
+    69. Merkly Attack       (Several L0 refuels / NFT bridges in a row)
+    70. Whale Attack        (Several L0 refuels / NFT bridges in a row)
+    71. Zerius Attack       (Several L0 refuels / NFT bridges in a row)
 
-## ♾️Основные функции
+## ♾️Main Functions
 
-1.  **🤖Запуск прогона всех аккаунтов с автоматической генерацией маршрутов из Google таблицы**
+1.  **🤖Launch of all accounts with automatic route generation from Google Sheet**
 
-    Если вы подготовили таблицу и включили сервисы на Google Cloud API, софт будет самостоятельно генерировать маршруты для всех аккаунтов по вашим настройкам и данным из таблицы.
-    В гайде по настройке вы сможете найти разделе **Google SpreadSheet**, там подробно описано и прикреплен видео гайд, как все настроить. Очень полезная вещь, если под вашим контролем находиться более нескольких сотен аккаунтов.
+    If you have prepared a spreadsheet and enabled services on Google Cloud API, the software will automatically generate routes for all accounts according to your settings and data from the spreadsheet.
+    In the setup guide, you can find the **Google SpreadSheet** section, which describes in detail how to set everything up and includes a video guide. This is very useful if you control more than several hundred accounts.
 
-2.  **🚀Запуск прогона всех аккаунтов по подготовленным классическим маршрутам**
+2.  **🚀Launch of all accounts using prepared classic routes**
 
-    После генерации маршрута (Пункт #3 функций), софт запустит выполнение маршрутов для всех аккаунтов. Все варианты работы смотрите в разделе **Настройка софта**  
+    After generating the route (Function #3), the software will start executing routes for all accounts. See all operation options in the **Software Configuration** section.
 
-3.  **📄Генерация классических роутов для каждого аккаунта**
+3.  **📄Generation of classic routes for each account**
 
-    Классический генератор, работает по дедовской методике. Вам нужно указать списки модулей в настройке `CLASSIC_ROUTES_MODULES_USING` и при запуске этой функции софт соберет вам маршрут по этой настройке. Поддерживается 
-    `None` как один из модулей в списке, при его попадании в маршрут, софт пропустит этот список.
+    Classic generator, works using the old-school method. You need to specify lists of modules in the `CLASSIC_ROUTES_MODULES_USING` setting, and when launching this function, the software will create a route based on this setting. `None` is supported as one of the modules in the list, and when it appears in the route, the software will skip this list.
 
-4. **💾Создание файла зависимостей ваших и OKX кошельков**
+4. **💾Creating a dependency file for your OKX wallets**
 
-    Создает файл JSON, где привязываются ваши адреса к кошелькам OKX. Сделал для вашей безопасности. Софт сопоставляет
-    к каждой строке в `OKX address` эту же строку в `Private Key` и если вы ошиблись, то всегда можно проверить это в 
-    файле `okx_withdraw_list.json`, во избежания пересечений кошельков.
+    Creates a JSON file that links your addresses to OKX wallets. Made for your security. The software matches each line in `OKX address` to the same line in `Private Key`, and if you made a mistake, you can always check it in the `okx_withdraw_list.json` file to avoid wallet crossovers.
 
-5. **✅Проверка всех прокси на работоспособность**
+5. **✅Checking all proxies for functionality**
 
-    Быстрая проверка прокси(реально быстрая, как с цепи срывается)
+    Quick proxy check (really fast, like lightning)
 
-6. **📊Получение статистики для каждого аккаунта**
+6. **📊Getting statistics for each account**
 
-    Практически моментальное получение всей статистики по аккаунтам, даже если их больше 100 штук(не забудьте про прокси). Сделаны все необходимые
-    поля. *На 02.12.2023 поддерживается только для zkSync*
+    Almost instant retrieval of all statistics for accounts, even if there are more than 100 of them (don't forget about proxies). All necessary fields are included. *As of 02.12.2023, only supported for zkSync*
 
 7. **⏰WHEN?**
 
-    Без комментариев
+    No comments
 
-## 📄Ввод своих данных
+## 📄Entering Your Data
 
-### Все нужные данные необходимо указать в таблицу `accounts_data` в папке `/data`. Для каждого проекта необходим свой отдельный в лист. 
-   1. **Name** - имена ваших аккаунтов, каждое название должно быть уникальным
-   2. **Private Key** - приватные ключи от кошельков
-   3. **Proxy** - прокси для каждого аккаунта. Если их будет меньше, софт будет брать их по кругу. Если прокси мобильные, то можно указать просто одну проксю.
-   4. **OKX address** - адреса пополнения OKX. Для каждого кошелька необходимо указать адрес, иначе вывод не сработает.
-   5. **Private Key EVM** - приватные ключи от EVM кошельков. Чтобы сделать бридж в Starknet необходим EVM кошелек. Можете их не указывать, но бриджи работать не будут.
+### All necessary data must be specified in the `accounts_data` table in the `/data` folder. Each project requires its own separate sheet.
+   1. **Name** - names of your accounts, each name must be unique
+   2. **Private Key** - private keys to the wallets
+   3. **Proxy** - proxy for each account. If there are fewer proxies than accounts, the software will cycle through them. If the proxies are mobile, you can specify just one proxy.
+   4. **OKX address** - OKX deposit addresses. You must specify an address for each wallet, otherwise withdrawal will not work.
+   5. **Private Key EVM** - private keys to EVM wallets. To bridge to Starknet, an EVM wallet is required. You can omit them, but bridges will not work.
 
-Вы можете установить пароль на вашу таблицу и включить настройку `EXCEL_PASSWORD = True`. При активации пароля, софт будет требовать его ввести для дальнейшей работы. Полезно при работе на сервере.
+You can set a password on your spreadsheet and enable the `EXCEL_PASSWORD = True` setting. When the password is activated, the software will require it to be entered for further work. Useful when working on a server.
 
-## ⚙️Настройка софта
+## ⚙️Software Configuration
 
->Крайне рекомендую ознакомиться с этой **[статьей](https://teletype.in/@realaskaer/attackmachine)**, с ее помощью вы сможете настроить любую деталь в софте.
+>I highly recommend reading this **[article](https://teletype.in/@realaskaer/attackmachine)**, which will help you configure any detail in the software.
 
-Все настройки вынесены в файл `settings.py`. Заходим в него и видим подробное описание каждого раздела.
-Самые важные настройки продублирую здесь. 
+All settings are in the `settings.py` file. Open it to see a detailed description of each section.
+I'll duplicate the most important settings here.
 
-1. Раздел `API KEYS`. Получите все API ключи. В разделе есть ссылки на сайты, где это нужно сделать
-2. Раздел `GENERAL SETTINGS`. Внимательно прочитайте все описания и проставьте необходимые значения
-3. Далее сверху вниз настройте все модули. К каждому модулю есть описание
+1. The `API KEYS` section. Get all API keys. The section has links to websites where you need to do this.
+2. The `GENERAL SETTINGS` section. Carefully read all descriptions and set the necessary values.
+3. Then from top to bottom, configure all modules. Each module has a description.
 
-### 📚Основные параметры
+### 📚Main Parameters
 
-* `GLOBAL_NETWORK` - устанавливает основную сеть для работы софта
-* `SOFTWARE_MODE` - определяет режим работы софта (параллельный или последовательный). Параллельный способен одновременно
-крутить очень больше количество аккаунтов (необходимы прокси для аккаунтов, максимум 5-7 аккаунтов на 1 проксю, если проксей будет мало, то работа софта станет нестабильной из-за лимитов RPC). Последовательный режим работает как ручной прогон. Условно: депозит на аккаунт -> прохождение маршрута ->
-вывод на OKX и так по кругу, для всех аккаунтов
-* `ACCOUNTS_IN_STREAM` - устанавливает количество кошельков в потоке при асинхронном запуске (`SOFTWARE_MODE = 1`)
-* `WALLETS_TO_WORK` - определяет какие кошельки будут работать. Варианты работы: Одиночный, Выборка, От Х до У, Все сразу. Подробнее в настройках.
-* `SAVE_PROGRESS` - включает сохранение прогресса для аккаунтов
-* `TELEGRAM_NOTIFICATIONS` - включает уведомления в Telegram
-* `SRC_CHAIN_ZERIUS`, `SRC_CHAIN_MERKLY`, `DST_CHAIN_ZERIUS_REFUEL`, `DST_CHAIN_MERKLY_REFUEL`, `DST_CHAIN_BUNGEE_REFUEL` и `DST_CHAIN_ZERIUS_NFT` - определяют исходящий / входящий блокчейн(куда делаем refuel/бридж) и минимальную/максимальную
-сумму для refuel. Также можно выбрать несколько сетей, софт выберет одну случайную.
-* `AMOUNT_PERCENT`, `LIQUIDITY_AMOUNT`, `TRANSFER_AMOUNT` - благодаря этим параметрам, софт понимает, сколько % от вашего баланса ему необходимо использовать в модулях
-в свапах, депозитах на лендинги и добавлении ликвидности. Более подробно описал [**здесь**](https://github.com/realaskaer/zkSync#%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5-%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8)
-* `MIN_BALANCE` - устанавливает минимальный баланс для аккаунта, опустившись за который, софт будет выдаться ошибку о
-недостаточном балансе на аккаунте `Insufficient balance on account!`
-* `GAS_CONTROL` - включает/выключает контроль газа для каждого шага в маршруте
-* `GAS_MULTIPLIER` - множитель газа, рекомендуемые значения: Starknet - 1.2 до 1.5 Остальные сети - 1. Этот параметр умножается на газ лимит, чтобы 
-увеличить шанс успешного завершения транзакции.
-* `MAXIMUM_RETRY` - количество повторных попыток при ошибках в модулях
-* `PRICE_IMPACT` - определяет максимальный % для защиты от Price Impact. Если Price Impact будет больше, то модуль прекратит свап.
-* `UNLIMITED_APPROVE` - выбор между бесконечными и точными апрувами
-* `SLEEP_MODE` и `SLEEP_TIME_STREAM` - включает/выключает режим сна после каждого модуля и между аккаунтами. Включив параллельный режим софта и
-выключив эту настройку, вы сможете лицезреть скорость данного аппарата
-* `EXCEL_PASSWORD` - включает запрос пароль от таблицы с данными от аккаунтов
-* `EXCEL_PAGE_NAME` - название листа в таблице с данными от аккаунтов
+* `GLOBAL_NETWORK` - sets the main network for software operation
+* `SOFTWARE_MODE` - determines the software operation mode (parallel or sequential). Parallel mode can simultaneously run a very large number of accounts (proxies are required for accounts, maximum 5-7 accounts per 1 proxy; if there are too few proxies, software operation will become unstable due to RPC limits). Sequential mode works like manual operation. Conditionally: deposit to account -> route completion -> withdrawal to OKX, and so on in a circle for all accounts.
+* `ACCOUNTS_IN_STREAM` - sets the number of wallets in the stream during asynchronous launch (`SOFTWARE_MODE = 1`)
+* `WALLETS_TO_WORK` - determines which wallets will work. Operation options: Single, Selection, From X to Y, All at once. More details in the settings.
+* `SAVE_PROGRESS` - enables progress saving for accounts
+* `TELEGRAM_NOTIFICATIONS` - enables Telegram notifications
+* `SRC_CHAIN_ZERIUS`, `SRC_CHAIN_MERKLY`, `DST_CHAIN_ZERIUS_REFUEL`, `DST_CHAIN_MERKLY_REFUEL`, `DST_CHAIN_BUNGEE_REFUEL` and `DST_CHAIN_ZERIUS_NFT` - determine the outgoing/incoming blockchain (where to make refuel/bridge) and the minimum/maximum amount for refuel. You can also select multiple networks, and the software will choose one at random.
+* `AMOUNT_PERCENT`, `LIQUIDITY_AMOUNT`, `TRANSFER_AMOUNT` - thanks to these parameters, the software understands what percentage of your balance it needs to use in modules for swaps, lending deposits, and adding liquidity. More details described [**here**](https://github.com/realaskaer/zkSync#%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5-%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8)
+* `MIN_BALANCE` - sets the minimum balance for an account, falling below which the software will give an error about insufficient balance on the account `Insufficient balance on account!`
+* `GAS_CONTROL` - enables/disables gas control for each step in the route
+* `GAS_MULTIPLIER` - gas multiplier, recommended values: Starknet - 1.2 to 1.5, Other networks - 1. This parameter is multiplied by the gas limit to increase the chance of successful transaction completion.
+* `MAXIMUM_RETRY` - number of retries for errors in modules
+* `PRICE_IMPACT` - determines the maximum % for Price Impact protection. If the Price Impact is greater, the module will stop the swap.
+* `UNLIMITED_APPROVE` - choice between unlimited and exact approvals
+* `SLEEP_MODE` and `SLEEP_TIME_STREAM` - enables/disables sleep mode after each module and between accounts. By enabling parallel mode and disabling this setting, you can witness the speed of this machine.
+* `EXCEL_PASSWORD` - enables password request for the spreadsheet with account data
+* `EXCEL_PAGE_NAME` - name of the sheet in the spreadsheet with account data
 
-## 🤛🏻Реферальная программа
+## 🤛🏻Referral Program
 
-Внутри файла `сonfig.py` есть настройка `HELP_SOFTWARE`, если она включена (по умолчанию - включена), то от суммы вашей транзакции на любом агрегаторе (`ODOS`, `OpenOcean`, `1INCH`, `XYfinance`, `Rango`, `AVNU`) мне будет идти `1%`. Эту часть от объема транзакции переводит контракт агрегатора, а не ваш кошелек. Поэтому вы не будете иметь дел с моим кошельком.
-Чтобы выключить эту функции, укажите значение `False` 
+Inside the `config.py` file, there is a `HELP_SOFTWARE` setting. If it is enabled (by default - enabled), then 1% of your transaction amount on any aggregator (`ODOS`, `OpenOcean`, `1INCH`, `XYfinance`, `Rango`, `AVNU`) will go to me. This part of the transaction volume is transferred by the aggregator contract, not your wallet. Therefore, you will not be dealing with my wallet.
+To disable this function, set the value to `False`
 
 
-## 🛠️Установка и запуск проекта
+## 🛠️Installation and Project Launch
 
-> Устанавливая проект, вы принимаете риски использования софта для добывания денег(потерять жопу, деньги, девственность).
+> By installing the project, you accept the risks of using software to earn money (losing your ass, money, virginity).
 
-Как только вы скачаете проект, **убедитесь**, что у вас Python 3.10.11
+Once you download the project, **make sure** you have Python 3.10.11
 
-Установка проекта
+Project installation
 
 ```bash
   git clone https://github.com/realaskaer/AttackMachine.git
 ```
 
-Для установки необходимых библиотек, пропишите в консоль
+To install the necessary libraries, type in the console
 
 ```bash
   pip install -r requirements.txt
 ```
 
-Запуск проекта
+Project launch
 
 ```bash
   cd attackmachine
   python main.py
 ```
 
-## 🔗 Ссылки на установку Python и PyCharm
+## 🔗 Links for Python and PyCharm Installation
 
- - [Установка PyCharm](https://www.jetbrains.com/pycharm/download/?section=windows)
- - [Установка Python](https://www.python.org/downloads/windows/) (Вам нужна версия 3.10.11)
+ - [PyCharm Installation](https://www.jetbrains.com/pycharm/download/?section=windows)
+ - [Python Installation](https://www.python.org/downloads/windows/) (You need version 3.10.11)
 
 ## 🧾FAQ
 
-#### Есть ли дрейнер в софте?
+#### Is there a drainer in the software?
 
-> Нет, но перед запуском любого софта, необходимо его проверять 
+> No, but before launching any software, you need to check it
 
-#### Что делать, если ничего работает?
+#### What to do if nothing works?
 
-> Сначала, прочитать README, если не получилось с первого раза, попытаться еще раз.
+> First, read the README; if it doesn't work the first time, try again.
 
-## ❔Куда писать свой вопрос?
+## ❔Where to write your question?
 
-- [@askaer.foundation](https://t.me/askaer) - мой канал в телеграм  
-- [@askaer.chat](https://t.me/askaerchat) - ответы на любой вопрос
-- [@askaer](https://t.me/realaskaer) - **при обнаружении бомбы в коде**  
+- [@askaer.foundation](https://t.me/askaer) - my Telegram channel  
+- [@askaer.chat](https://t.me/askaerchat) - answers to any question
+- [@askaer](https://t.me/realaskaer) - **if you discover a bomb in the code**
